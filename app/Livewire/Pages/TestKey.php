@@ -21,7 +21,9 @@ class TestKey extends Component
     public function create_test_key(){
         $key = Str::random(40);
 
-        $user_id 
+        $user_id = 1; // the first user after running the seeder
+
+
     }
 
     // copy test key
