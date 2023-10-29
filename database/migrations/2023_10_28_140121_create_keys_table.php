@@ -15,7 +15,8 @@ return new class extends Migration
         Schema::create('keys', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id')->nullable();
-            $table->string('value')->nullable();
+            $table->enum('type',['live','test'])->nullable();
+            $table->longText('value')->nullable();
             $table->boolean('status')->default(true);
             $table->timestamps();
         });

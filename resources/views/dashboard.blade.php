@@ -14,4 +14,21 @@
             </div>
         </div>
     </div>
+
+    <div class="bg-white h-1/3 w-3/6 m-auto my-6 p-6 rounded-lg">
+        <livewire:pages.test-key />
+        <livewire:pages.live-key />
+    </div>
+
+    @livewireScripts
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            Livewire.on('clipboard-copied', data => {
+                // Handle the event data here
+                console.log('Event data:', data);
+            });
+        });
+    </script>
+
 </x-app-layout>

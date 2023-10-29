@@ -9,7 +9,7 @@ class Keys extends Model
 {
     use HasFactory;
 
-    public $fillable = ['user_id','value','status'];
+    public $fillable = ['user_id','value','status', 'type'];
 
     public function user () {
         $this->belongsTo('users');

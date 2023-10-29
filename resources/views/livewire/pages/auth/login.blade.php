@@ -72,6 +72,12 @@ new #[Layout('layouts.guest')] class extends Component
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
+    <div class="border-2 border-blue-400 text-blue-500 bg-blue-200 p-6 my-6 rounded-lg">
+        <h3 class="font-bold">Test credentials: </h3>
+        <p>Email Address: <span class="font-bold italic"> test@legitcar.com </span></p>
+        <p>Password: <span class="font-bold italic">password</span></p>
+    </div>
+
     <form wire:submit="login">
         <!-- Email Address -->
         <div>
@@ -95,14 +101,14 @@ new #[Layout('layouts.guest')] class extends Component
         <!-- Remember Me -->
         <div class="block mt-4">
             <label for="remember" class="inline-flex items-center">
-                <input wire:model="remember" id="remember" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500" name="remember">
+                <input wire:model="remember" id="remember" type="checkbox" class="rounded border-gray-300 text-blue-600 shadow-sm focus:ring-blue-500" name="remember">
                 <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
             </label>
         </div>
 
         <div class="flex items-center justify-end mt-4">
             @if (Route::has('password.request'))
-                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}" wire:navigate>
+                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500" href="{{ route('password.request') }}" wire:navigate>
                     {{ __('Forgot your password?') }}
                 </a>
             @endif
