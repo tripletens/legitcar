@@ -37,7 +37,14 @@ class TestKey extends Component
         $fetch_key = Keys::where(['user_id' => $user_id, 'status' => true, 'type' => 'test'])->first();
 
         // dd($fetch_key);
-        $this->test_key = $fetch_key->value;
+
+        if(!$fetch_key || is_null($fetch_key)){
+            session()->flash('info', 'Kindly run php artisan db:seed');
+        }else{
+            $this->test_key = $fetch_key->value;
+        }
+
+
     }
 
     // create new test key
@@ -70,7 +77,7 @@ class TestKey extends Component
             }
 
             $this->test_key = $hashed_key;
-            
+
             return back()->with('success', 'Api key generated successfully');
 
         } catch (QueryException $e) {
