@@ -28,6 +28,8 @@ new #[Layout('layouts.guest')] class extends Component
 
         $validated['password'] = Hash::make($validated['password']);
 
+        // generate api keys for the user
+
         event(new Registered($user = User::create($validated)));
 
         auth()->login($user);
